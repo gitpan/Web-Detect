@@ -1,0 +1,30 @@
+NAME
+    Web::Detect - Detect if program is running under some web environment
+
+VERSION
+    version 0.01
+
+SYNOPSIS
+     use Web::Detect qw(detect_web);
+     say "Running under terminal" if detect_web();
+
+DESCRIPTION
+FUNCTIONS
+  detect_web() => HASHREF
+    Return undef if not detected running under any web environment.
+
+    Return a hash otherwise, with following keys: "mod_perl" (bool, true if
+    detected running under mod_perl), "plack" (bool, true if detected
+    running under Plack), "cgi" (bool, true if detected running under CGI).
+
+TODO
+SEE ALSO
+AUTHOR
+    Steven Haryanto <stevenharyanto@gmail.com>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2013 by Steven Haryanto.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
