@@ -5,7 +5,7 @@ use strict;
 use warnings;
 use Log::Any '$log';
 
-our $VERSION = '0.01'; # VERSION
+our $VERSION = '0.02'; # VERSION
 
 require Exporter;
 our @ISA       = qw(Exporter);
@@ -42,12 +42,12 @@ Web::Detect - Detect if program is running under some web environment
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
  use Web::Detect qw(detect_web);
- say "Running under terminal" if detect_web();
+ say "Running under web" if detect_web();
 
 =head1 DESCRIPTION
 
@@ -60,6 +60,13 @@ Return undef if not detected running under any web environment.
 Return a hash otherwise, with following keys: C<mod_perl> (bool, true if
 detected running under mod_perl), C<plack> (bool, true if detected running under
 Plack), C<cgi> (bool, true if detected running under CGI).
+
+=head1 FAQ
+
+=head2 What is the use of this module?
+
+Usually I do it to decide whether to output HTML or plaintext. Running under
+some web environment usually prefers HTML output.
 
 =head1 TODO
 

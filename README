@@ -2,11 +2,11 @@ NAME
     Web::Detect - Detect if program is running under some web environment
 
 VERSION
-    version 0.01
+    version 0.02
 
 SYNOPSIS
      use Web::Detect qw(detect_web);
-     say "Running under terminal" if detect_web();
+     say "Running under web" if detect_web();
 
 DESCRIPTION
 FUNCTIONS
@@ -16,6 +16,11 @@ FUNCTIONS
     Return a hash otherwise, with following keys: "mod_perl" (bool, true if
     detected running under mod_perl), "plack" (bool, true if detected
     running under Plack), "cgi" (bool, true if detected running under CGI).
+
+FAQ
+  What is the use of this module?
+    Usually I do it to decide whether to output HTML or plaintext. Running
+    under some web environment usually prefers HTML output.
 
 TODO
 SEE ALSO
