@@ -2,7 +2,7 @@ NAME
     Web::Detect - Detect if program is running under some web environment
 
 VERSION
-    version 0.02
+    version 0.03
 
 SYNOPSIS
      use Web::Detect qw(detect_web);

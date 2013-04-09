@@ -13,10 +13,7 @@ meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Web-Detect
-requires:
-  Log::Any: 0
-  perl: 5.010001
 resources:
   homepage: http://metacpan.org/release/Web-Detect
   repository: http://github.com/sharyanto/perl-Web-Detect
-version: 0.02
+version: 0.03

@@ -1,5 +1,13 @@
 Revision history for Web-Detect
 
+0.03    2013-04-09 (SHARYANTO)
+
+        - Make the module usable on pre-5.10 perl. (DMUEY)
+
+        - Use 'return' instead of 'return undef' to avoid possible return
+          ambiguity issues. (DMUEY)
+
+
 0.02    2013-04-05 (SHARYANTO)
 
         No functional change. Fix copy paste mistake in Synopsis (spotted by

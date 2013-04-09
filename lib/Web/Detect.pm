@@ -1,20 +1,21 @@
 package Web::Detect;
 
-use 5.010001;
 use strict;
 use warnings;
-use Log::Any '$log';
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
-require Exporter;
-our @ISA       = qw(Exporter);
-our @EXPORT_OK = qw(detect_web);
+sub import {
+    if (@_ > 1 && $_[1] eq 'detect_web') {
+        no strict 'refs';
+        *{ caller() . '::detect_web' } = \&detect_web;
+    }
+}
 
 sub detect_web {
     my %res;
 
-    if (($ENV{GATEWAY_INTERFACE} // "") =~ m!^CGI/!) {
+    if (defined $ENV{GATEWAY_INTERFACE} && $ENV{GATEWAY_INTERFACE} =~ m/^CGI/) {
         $res{cgi} = 1;
     }
     if ($ENV{MOD_PERL}) {
@@ -25,7 +26,7 @@ sub detect_web {
         $res{psgi} = 1;
     }
 
-    return undef unless %res;
+    return unless %res;
     \%res;
 }
 
@@ -42,7 +43,7 @@ Web::Detect - Detect if program is running under some web environment
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 

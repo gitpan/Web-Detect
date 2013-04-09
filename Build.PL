@@ -17,15 +17,12 @@ my %module_build_args = (
     "Steven Haryanto <stevenharyanto\@gmail.com>"
   ],
   "dist_name" => "Web-Detect",
-  "dist_version" => "0.02",
+  "dist_version" => "0.03",
   "license" => "perl",
   "module_name" => "Web::Detect",
   "recommends" => {},
   "recursive_test_files" => 1,
-  "requires" => {
-    "Log::Any" => 0,
-    "perl" => "5.010001"
-  },
+  "requires" => {},
   "script_files" => []
 );
 
