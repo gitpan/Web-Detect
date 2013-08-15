@@ -2,28 +2,74 @@ NAME
     Web::Detect - Detect if program is running under some web environment
 
 VERSION
-    version 0.03
+    version 0.04
 
 SYNOPSIS
-     use Web::Detect qw(detect_web);
-     say "Running under web" if detect_web();
+        use Web::Detect qw(detect_web detect_web_fast);
+        use IO::Interactive::Tiny ();
+
+        if (Web::Detect::detect_web_fast()) {
+            # do HTML
+        }
+        else {
+            # do CLI
+            if (IO::Interactive::Tiny::is_interactive()) {
+                # prompt/ANSI/etc
+            }
+            else {
+                # do not prompt/plain text/etc
+            }
+        }
 
 DESCRIPTION
+    Knowing if you are under a web environment or not is very handy.
+
+    For example, often you need to decide whether to output HTML or
+    plaintext.
+
 FUNCTIONS
+    Functions are exportable but are not exported by default.
+
   detect_web() => HASHREF
-    Return undef if not detected running under any web environment.
+    Return false if not detected running under any web environment.
 
-    Return a hash otherwise, with following keys: "mod_perl" (bool, true if
-    detected running under mod_perl), "plack" (bool, true if detected
-    running under Plack), "cgi" (bool, true if detected running under CGI).
+    Return a hash otherwise.
 
-FAQ
-  What is the use of this module?
-    Usually I do it to decide whether to output HTML or plaintext. Running
-    under some web environment usually prefers HTML output.
+    These keys exists if it is detected that we are running under the given
+    environment and the value is suitable as a boolean (always true).
+
+    "mod_perl"
+    "plack"
+    "pangea"
+    "cpanel"
+        <http://cpanel.net>
+
+    "catalyst"
+    "dancer"
+    "mojo"
+    "FCGI.pm"
+    "IIS"
+    "cgi"
+        General CGI
+
+    "general"
+        Value can be 1 if it was detected during the first general check, 2
+        if it was detected during the second general check, and 3 if it was
+        detected under both.
+
+    Additionally, "psgi" is also true if we know its a PSGI environment.
+
+  detect_web_fast()
+    Same as detect_web() but return HASHREF upon first successful check
+    instead of trying all heuristics.
 
 TODO
-SEE ALSO
+    Make heuristics even better!
+
+    More links/description to each HASHREF key.
+
+    Never enough tests.
+
 AUTHOR
     Steven Haryanto <stevenharyanto@gmail.com>
 
