@@ -1,13 +1,8 @@
-NAME
-    Web::Detect - Detect if program is running under some web environment
-
-VERSION
-    version 0.04
-
 SYNOPSIS
+
         use Web::Detect qw(detect_web detect_web_fast);
         use IO::Interactive::Tiny ();
-
+    
         if (Web::Detect::detect_web_fast()) {
             # do HTML
         }
@@ -22,15 +17,18 @@ SYNOPSIS
         }
 
 DESCRIPTION
+
     Knowing if you are under a web environment or not is very handy.
 
     For example, often you need to decide whether to output HTML or
     plaintext.
 
 FUNCTIONS
+
     Functions are exportable but are not exported by default.
 
-  detect_web() => HASHREF
+ detect_web() => HASHREF
+
     Return false if not detected running under any web environment.
 
     Return a hash otherwise.
@@ -38,44 +36,40 @@ FUNCTIONS
     These keys exists if it is detected that we are running under the given
     environment and the value is suitable as a boolean (always true).
 
-    "mod_perl"
-    "plack"
-    "pangea"
-    "cpanel"
-        <http://cpanel.net>
+    mod_perl
 
-    "catalyst"
-    "dancer"
-    "mojo"
-    "FCGI.pm"
-    "IIS"
-    "cgi"
-        General CGI
+    plack
 
-    "general"
-        Value can be 1 if it was detected during the first general check, 2
-        if it was detected during the second general check, and 3 if it was
-        detected under both.
+    pangea
 
-    Additionally, "psgi" is also true if we know its a PSGI environment.
+    cpanel
 
-  detect_web_fast()
+      http://cpanel.net
+
+    catalyst
+
+    dancer
+
+    mojo
+
+    FCGI.pm
+
+    IIS
+
+    cgi
+
+      General CGI
+
+    general
+
+      Value can be 1 if it was detected during the first general check, 2
+      if it was detected during the second general check, and 3 if it was
+      detected under both.
+
+    Additionally, psgi is also true if we know its a PSGI environment.
+
+ detect_web_fast()
+
     Same as detect_web() but return HASHREF upon first successful check
     instead of trying all heuristics.
-
-TODO
-    Make heuristics even better!
-
-    More links/description to each HASHREF key.
-
-    Never enough tests.
-
-AUTHOR
-    Steven Haryanto <stevenharyanto@gmail.com>
-
-COPYRIGHT AND LICENSE
-    This software is copyright (c) 2013 by Steven Haryanto.
-
-    This is free software; you can redistribute it and/or modify it under
-    the same terms as the Perl 5 programming language system itself.
 

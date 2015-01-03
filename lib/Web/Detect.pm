@@ -1,9 +1,10 @@
 package Web::Detect;
 
+our $DATE = '2015-01-03'; # DATE
+our $VERSION = '0.05'; # VERSION
+
 use strict;
 use warnings;
-
-our $VERSION = '0.04'; # VERSION
 
 sub import {
     if ( @_ > 1 ) {
@@ -106,11 +107,13 @@ sub detect_web_fast {
 
 1;
 
-#ABSTRACT: Detect if program is running under some web environment
+# ABSTRACT: Detect if program is running under some web environment
 
 __END__
 
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -118,7 +121,7 @@ Web::Detect - Detect if program is running under some web environment
 
 =head1 VERSION
 
-version 0.04
+This document describes version 0.05 of Web::Detect (from Perl distribution Web-Detect), released on 2015-01-03.
 
 =head1 SYNOPSIS
 
@@ -143,8 +146,6 @@ version 0.04
 Knowing if you are under a web environment or not is very handy.
 
 For example, often you need to decide whether to output HTML or plaintext.
-
-=encoding utf-8
 
 =head1 FUNCTIONS
 
@@ -199,21 +200,29 @@ Additionally, C<psgi> is also true if we know its a PSGI environment.
 Same as detect_web() but return HASHREF upon first successful check instead of
 trying all heuristics.
 
-=head1 TODO
+=head1 HOMEPAGE
 
-Make heuristics even better!
+Please visit the project's homepage at L<https://metacpan.org/release/Web-Detect>.
 
-More links/description to each HASHREF key.
+=head1 SOURCE
 
-Never enough tests.
+Source repository is at L<https://github.com/sharyanto/perl-Web-Detect>.
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website L<https://rt.cpan.org/Public/Dist/Display.html?Name=Web-Detect>
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
 
 =head1 AUTHOR
 
-Steven Haryanto <stevenharyanto@gmail.com>
+perlancar <perlancar@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Steven Haryanto.
+This software is copyright (c) 2015 by perlancar@cpan.org.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
